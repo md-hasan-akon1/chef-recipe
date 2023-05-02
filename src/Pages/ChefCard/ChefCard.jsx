@@ -1,12 +1,15 @@
 import React from 'react';
 import { Button, Card, Col, Image, Row } from 'react-bootstrap';
+import LazyLoad from 'react-lazy-load';
 
 const ChefCard = ({ card }) => {
   const { chefName, chefPicture, likes, rating, recipeName, yearsOfExperience, id, numberOfRecipes } = card
   return (
     <div data-aos="zoom-in-up" > <Col>
       <Card className='shadow'>
-        <Card.Img variant="top" style={{ height: '300px' }} src={chefPicture} />
+        <LazyLoad height={300}>
+          <Card.Img variant="top" style={{ height: '300px' }} src={chefPicture} />
+        </LazyLoad>
         <Card.Body>
           <Card.Title> <h4 className='fw-bold'>Name: {chefName}</h4></Card.Title>
 

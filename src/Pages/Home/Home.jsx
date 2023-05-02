@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, CardGroup, Carousel, Row } from 'react-bootstrap';
+import { Button, Card, CardGroup, Carousel, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../ChefCard/ChefCard';
 import { Rating } from '@smastrom/react-rating'
@@ -7,13 +7,14 @@ import '@smastrom/react-rating/style.css'
 import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import LazyLoad from 'react-lazy-load';
 const Home = () => {
     const cardData = useLoaderData()
     useEffect(() => {
         AOS.init();
     }, [])
     return (
-        <div >
+        <Container >
             {/* carousel section */}
             <Carousel className='mt-4'>
                 <Carousel.Item>
@@ -135,7 +136,9 @@ const Home = () => {
                 <h1 className='text-center my-4'>Fitness Tips</h1>
                 <div className=' row '>
                     <Card className='col-lg-4 '>
-                        <Card.Img variant="top" src="https://i.ibb.co/DD2PVG2/top-view-of-cropped-hands-holding-bowl-with-vegeta-2022-11-17-12-45-27-utc-1024x683.jpg" />
+                        <LazyLoad   threshold={0.99} offset={300} height={280}>
+                            <Card.Img variant="top" src="https://i.ibb.co/DD2PVG2/top-view-of-cropped-hands-holding-bowl-with-vegeta-2022-11-17-12-45-27-utc-1024x683.jpg" />
+                        </LazyLoad>
                         <Card.Body>
                             <div className='bg-success rounded rounded-circle' style={{ height: '60px', width: '60px', marginTop: '-50px' }}>
                                 <p className='text-white text-center fw-bold pt-2 '>10 <br /> mar</p>
@@ -150,7 +153,9 @@ const Home = () => {
                     </Card>
 
                     <Card className='col-lg-4  ' >
-                        <Card.Img variant="top" src="https://i.ibb.co/k1bz1RS/young-woman-nutritionist-in-white-shirt-working-at-2021-09-04-15-03-27-utc-1024x682.jpg" />
+                        <LazyLoad height={280}>
+                            <Card.Img variant="top" src="https://i.ibb.co/k1bz1RS/young-woman-nutritionist-in-white-shirt-working-at-2021-09-04-15-03-27-utc-1024x682.jpg" />
+                        </LazyLoad>
                         <Card.Body>
                             <div className='bg-success rounded rounded-circle' style={{ height: '60px', width: '60px', marginTop: '-50px' }}>
                                 <p className='text-white text-center fw-bold pt-2 '>10 <br /> mar</p>
@@ -165,7 +170,9 @@ const Home = () => {
                     </Card>
 
                     <Card className='col-lg-4 '>
-                        <Card.Img variant="top" src="https://i.ibb.co/0Z1fNgS/nutritionist-with-female-patient-2021-08-26-16-53-46-utc-1024x684.jpg" />
+                        <LazyLoad height={280}>
+                            <Card.Img variant="top" src="https://i.ibb.co/0Z1fNgS/nutritionist-with-female-patient-2021-08-26-16-53-46-utc-1024x684.jpg" />
+                        </LazyLoad>
                         <Card.Body>
                             <div className='bg-success rounded rounded-circle' style={{ height: '60px', width: '60px', marginTop: '-50px' }}>
                                 <p className='text-white text-center fw-bold pt-2 '>10 <br /> mar</p>
@@ -180,7 +187,7 @@ const Home = () => {
                     </Card>
                 </div>
             </section>
-        </div>
+        </Container>
     );
 };
 

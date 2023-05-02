@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../../assets/png-clipart-case-mate-logo-creamycookies-design-apple-iphone-4-cooking-ware-text-recipe-thumbnail.png'
 const Header = () => {
     return (
-        <div className='mt-4'>
+        <Container className='mt-4'>
             <h2 className='text-center ' style={{fontFamily:'fantasy'}}> <span className='text-center bg-light' >The Bengali Chef Foods</span></h2>
             <Navbar bg="light" expand="lg">
       <Container>
@@ -22,7 +22,7 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-        </div>
+        </Container>
     );
 };
 
