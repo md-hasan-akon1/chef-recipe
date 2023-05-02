@@ -70,7 +70,66 @@ const Home = () => {
 
             {/* extra section 1 */}
 
-            
+            <section     className='bg-warning-subtle'>
+                <h1 className='text-center mt-4'>Most Favorite Foods</h1>
+                <CardGroup  className=''>
+                    <Card  data-aos="fade-down-right" className='mx-4 '>
+                        <Card.Img variant="top" style={{ height: '300px' }} src="https://i.ibb.co/vXt517Y/Chicken-Picatta-8.jpg" />
+                        <Card.Body>
+                            <p className='fw-bolder text-danger'>MAIN DISHES</p>
+                            <Card.Title>Quick Chicken Piccata</Card.Title>
+                            <Rating
+
+                                style={{ maxWidth: 150 }}
+                                value={3.5}
+                                readOnly
+                            />
+                            <Card.Text>
+                                Habitant accumsan suscipit sodales phasellus nulla elit placerat sapien quisque gravida tincidunt
+                            </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                            <small className="text-muted">Available now this special food</small>
+                        </Card.Footer>
+                    </Card>
+                    <Card data-aos="flip-down" className='border'>
+                        <Card.Img variant="top" style={{ height: '300px' }} src="https://i.ibb.co/wgyzZJM/Kung-Pao-Chicken-Horizontal.jpg" />
+                        <Card.Body>
+                            <p className='fw-bolder text-danger'>MAIN DISHES</p>
+                            <Card.Title>Kung Pao Chicken</Card.Title>
+                            <Rating
+                                style={{ maxWidth: 150 }}
+                                value={4}
+                                readOnly
+                            />
+                            <Card.Text>
+                                Habitant accumsan suscipit sodales phasellus nulla elit placerat sapien quisque gravida tincidunt
+                            </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                            <small className="text-muted">Available now this special food</small>
+                        </Card.Footer>
+                    </Card>
+                    <Card data-aos="fade-down-left" className='mx-4 border'>
+                        <Card.Img variant="top" style={{ height: '300px' }} src="https://i.ibb.co/cJSm9yD/Slow-Cooker-Honey-Garlic-Chicken-Thighs-and-Potatoes-Recipe-10x7-684x480.jpg" />
+                        <Card.Body>
+                            <p className='fw-bolder text-danger'>MAIN DISHES</p>
+                            <Card.Title>Honey-Garlic Slow Cooker Chicken Thighs</Card.Title>
+                            <Rating
+                                style={{ maxWidth: 150 }}
+                                value={4.5}
+                                readOnly
+                            />
+                            <Card.Text>
+                                Habitant accumsan suscipit sodales phasellus nulla elit placerat sapien quisque gravida tincidunt
+                            </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                            <small className="text-muted">Available now this special food</small>
+                        </Card.Footer>
+                    </Card>
+                </CardGroup>
+            </section>
         </div>
     );
 };
