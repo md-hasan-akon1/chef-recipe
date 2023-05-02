@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card, Col, Image, Row } from 'react-bootstrap';
 import LazyLoad from 'react-lazy-load';
+import { Link } from 'react-router-dom';
 
 const ChefCard = ({ card }) => {
   const { chefName, chefPicture, likes, rating, recipeName, yearsOfExperience, id, numberOfRecipes } = card
@@ -19,7 +20,7 @@ const ChefCard = ({ card }) => {
             <p className='flex-grow-1'><span className='fw-bolder '>number of Recipes:</span> {numberOfRecipes}</p>
             <p><Image style={{ height: '40px' }} src='https://i.ibb.co/r20HfN8/download.png'></Image> {likes} </p>
           </div>
-          <Button className='w-100' variant="primary">View Recipes Details</Button>
+          <Link to={`/${id}`}><Button className='w-100' variant="primary">View Recipes Details</Button></Link>
         </Card.Body>
       </Card>
     </Col>

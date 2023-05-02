@@ -3,7 +3,7 @@ import { Container, Image } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from '../../assets/png-clipart-case-mate-logo-creamycookies-design-apple-iphone-4-cooking-ware-text-recipe-thumbnail.png'
+import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <Container className='mt-4'>
@@ -14,9 +14,9 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Blog</Nav.Link>
-            <Nav.Link href="#link">profile</Nav.Link>
+            <Link className='text-decoration-none text-black m-2' to='/'>Home</Link>
+            <Link className='text-decoration-none text-black m-2' to='/'>Blog</Link>
+            <Link className='text-decoration-none text-black m-2' to='/'>profile</Link>
           </Nav>
         <Nav.Link href="#link">login</Nav.Link>
         </Navbar.Collapse>
