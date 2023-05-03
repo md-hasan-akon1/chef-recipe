@@ -20,6 +20,10 @@ const Register = () => {
             setError('password did not match')
             return
         }
+        else if(!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)){
+           setError("Invalid  email")
+            return
+        }
         else {
 
             createUser(email, password)
