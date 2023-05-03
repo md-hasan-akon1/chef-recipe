@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container, Image } from 'react-bootstrap';
+import { Button, Container, Image, Row } from 'react-bootstrap';
 import { useLoaderData, useParams } from 'react-router-dom';
+import Recipes from '../../Sheard/Recipes/Recipes';
 
 const CardDetails = () => {
     const allData = useLoaderData()
-    console.log(allData)
     const { id, chefName, chefPicture, likes, numberOfRecipes, yearsOfExperience, cardDetails, description } = allData;
     return (
         <Container>
@@ -18,12 +18,19 @@ const CardDetails = () => {
                     </div>
                     <h5>Description</h5>
                     <p>{description}</p>
-
+                    
                 </div>
             </div>
 
+    <Row xs={1} md={2} lg={3} className='mt-4'>
+    {
+cardDetails.map(details=><Recipes 
+key={details.id}
+details={details}
+></Recipes>)
+            }
+    </Row>
 
-            
         </Container>
     );
 };
