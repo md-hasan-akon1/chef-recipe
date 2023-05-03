@@ -2,8 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import CardDetails from "../Pages/CardDetails/CardDetails";
-import Login from "../Sheard/Login/Login";
 import Error from "../Sheard/Error/Error";
+import Register from "../Pages/Register/Register";
+import Login from "../Pages/Login/Login";
+
 
 const router=createBrowserRouter([
     {
@@ -22,10 +24,15 @@ const router=createBrowserRouter([
                 loader:({params})=>fetch(`https://assignment-10-server-md-hasan-akon1.vercel.app/${params.id}`)
             },
             {
+                path:'/register',
+                element:<Register></Register>
+            },
+            {
                 path:'/login',
                 element:<Login></Login>
 
-            }
+            },
+           
         ]
     }
 ])
