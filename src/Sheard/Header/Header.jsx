@@ -6,7 +6,14 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
 const Header = () => {
-  const { user } = useContext(authContext)
+  const { user, logout } = useContext(authContext);
+
+console.log(user)
+  const handelLogout = () => {
+    logout()
+    
+  }
+
 
   return (
     <Container className='mt-4'>
@@ -19,13 +26,18 @@ const Header = () => {
             <Nav className="mx-auto">
               <Link className='text-decoration-none text-black m-2' to='/'>Home</Link>
               <Link className='text-decoration-none text-black m-2' to='/'>Blog</Link>
-              <Link className='text-decoration-none text-black m-2' to='/'>profile</Link>
             </Nav>
             {
-              user ? <> <Button variant="outline-success">logout</Button></> : <><Link to='/login' className='text-decoration-none text-black m-2'>Login</Link></>
+              user?.photoURL&&<div>
+                <Image style={{height:"80px",borderRadius:'50%'}} src={user.photoURL}></Image>
+              </div>
             }
-             <Button className='m-2' variant="outline-success"> <Link to='/register' className='text-decoration-none text-black'>register</Link></Button>
-         
+            {
+              user ? <> <Button onClick={handelLogout} variant="outline-success">logout</Button></> : 
+              <Button variant="outline-success"><Link to='/login' className='text-decoration-none text-black m-2'>Login</Link></Button>
+            }
+            <Button className='m-2' variant="outline-success"> <Link to='/register' className='text-decoration-none text-black'>register</Link></Button>
+
 
           </Navbar.Collapse>
         </Container>
