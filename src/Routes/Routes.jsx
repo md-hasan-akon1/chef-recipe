@@ -6,6 +6,7 @@ import Error from "../Sheard/Error/Error";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import PrivetRout from "../Sheard/PrivetRout/PrivetRout";
+import Blog from "../Pages/Blog/Blog";
 
 
 const router=createBrowserRouter([
@@ -33,6 +34,10 @@ const router=createBrowserRouter([
                 element:<Login></Login>
 
             },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
+            }
            
         ]
     }

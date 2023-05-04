@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Container, Image } from 'react-bootstrap';
+import { Button, Container, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
 const Header = () => {
   const { user, logout } = useContext(authContext);
-
+  const name = user?.displayName;
   console.log(user)
   const handelLogout = () => {
     logout()
@@ -25,16 +25,19 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
               <Link className='text-decoration-none text-black m-2' to='/'>Home</Link>
-              <Link className='text-decoration-none text-black m-2' to='/'>Blog</Link>
+              <Link className='text-decoration-none text-black m-2' to='/blog'>Blog</Link>
             </Nav>
-            {
-              user?.photoURL && <div>
-                <Image style={{ height: "80px", borderRadius: '50%' }} src={user.photoURL}></Image>
-              </div>
-            }
+            {user?.photoURL && <><OverlayTrigger overlay={<Tooltip   id="tooltip-disabled">{name}</Tooltip>}>
+              <span className="d-inline-block">
+                <div>
+                  <Image style={{ height: "80px", borderRadius: '50%' }} src={user.photoURL}></Image>
+                </div>
+              </span>
+            </OverlayTrigger></>}
+
             {
               user ? <> <Button onClick={handelLogout} variant="outline-success">logout</Button></> :
-              <Link to='/login' className='text-decoration-none text-black m-2'><Button variant="outline-success">Login</Button></Link>
+                <Link to='/login' className='text-decoration-none text-black m-2'><Button variant="outline-success">Login</Button></Link>
             }
 
 

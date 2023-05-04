@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser } = useContext(authContext)
-    const [error, setError] = useState('')
-    const [passwordCheck, setPassword] = useState('')
+    const { createUser } = useContext(authContext);
+    const [error, setError] = useState('');
+    const [passwordCheck, setPassword] = useState('');
+    const navigate=useNavigate()
     const handelRegister = event => {
         event.preventDefault()
         const form = event.target;
@@ -32,14 +33,14 @@ const Register = () => {
                     console.log(result.user)
                     form.reset()
                     setPassword('')
+                    navigate('/')
                 })
                 .catch(e => {
                     const errorMassage = (e.message)
                     console.log(e.message)
                     if (errorMassage.includes("auth")) {
                         setError('User already exists')
-    
-                    }
+     }
                     return
                 })
             setError('')
@@ -78,7 +79,7 @@ const Register = () => {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicFile">
                         <Form.Label>Photo URL</Form.Label>
-                        <Form.Control type="file" name='photo' placeholder="enter photo" required />
+                        <Form.Control type="file" name='photo' accept="image/*" placeholder="enter photo" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
