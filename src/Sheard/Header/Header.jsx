@@ -8,10 +8,10 @@ import { authContext } from '../../AuthProvider/AuthProvider';
 const Header = () => {
   const { user, logout } = useContext(authContext);
 
-console.log(user)
+  console.log(user)
   const handelLogout = () => {
     logout()
-    
+
   }
 
 
@@ -28,16 +28,17 @@ console.log(user)
               <Link className='text-decoration-none text-black m-2' to='/'>Blog</Link>
             </Nav>
             {
-              user?.photoURL&&<div>
-                <Image style={{height:"80px",borderRadius:'50%'}} src={user.photoURL}></Image>
+              user?.photoURL && <div>
+                <Image style={{ height: "80px", borderRadius: '50%' }} src={user.photoURL}></Image>
               </div>
             }
             {
-              user ? <> <Button onClick={handelLogout} variant="outline-success">logout</Button></> : 
-              <Button variant="outline-success"><Link to='/login' className='text-decoration-none text-black m-2'>Login</Link></Button>
+              user ? <> <Button onClick={handelLogout} variant="outline-success">logout</Button></> :
+              <Link to='/login' className='text-decoration-none text-black m-2'><Button variant="outline-success">Login</Button></Link>
             }
-            <Button className='m-2' variant="outline-success"> <Link to='/register' className='text-decoration-none text-black'>register</Link></Button>
 
+
+            <Link to='/register' className='text-decoration-none text-black'> <Button className='m-2' variant="outline-success"> Register</Button></Link>
 
           </Navbar.Collapse>
         </Container>

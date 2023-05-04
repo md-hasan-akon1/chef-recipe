@@ -5,6 +5,7 @@ import CardDetails from "../Pages/CardDetails/CardDetails";
 import Error from "../Sheard/Error/Error";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
+import PrivetRout from "../Sheard/PrivetRout/PrivetRout";
 
 
 const router=createBrowserRouter([
@@ -20,7 +21,7 @@ const router=createBrowserRouter([
             },
             {
                 path:'/:id',
-                element:<CardDetails></CardDetails>,
+                element:<PrivetRout><CardDetails></CardDetails></PrivetRout>,
                 loader:({params})=>fetch(`https://assignment-10-server-md-hasan-akon1.vercel.app/${params.id}`)
             },
             {

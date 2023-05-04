@@ -14,7 +14,7 @@ const Home = () => {
         AOS.init();
     }, [])
     return (
-        <Container >
+        <Container style={{ backgroundColor: 'rgb(221, 240, 226)' }} >
             {/* carousel section */}
             <Carousel className='mt-4'>
                 <Carousel.Item>
@@ -136,7 +136,7 @@ const Home = () => {
                 <h1 className='text-center my-4'>Fitness Tips</h1>
                 <div className=' row '>
                     <Card className='col-lg-4 '>
-                        <LazyLoad   threshold={0.99} offset={300} height={280}>
+                        <LazyLoad   threshold={0.95} offset={300} height={280}>
                             <Card.Img variant="top" src="https://i.ibb.co/DD2PVG2/top-view-of-cropped-hands-holding-bowl-with-vegeta-2022-11-17-12-45-27-utc-1024x683.jpg" />
                         </LazyLoad>
                         <Card.Body>

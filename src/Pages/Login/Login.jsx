@@ -1,21 +1,28 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
 import { FaBeer, FaGithub, FaGoogle } from 'react-icons/fa'
 const Login = () => {
     const { signIn, googleLogin, githubLogin } = useContext(authContext)
+    const navigate=useNavigate()
+    const location=useLocation()
     const [error, setError] = useState('')
+    const from=location?.state?.pathname ||"/"
+    
     const handelLogin = event => {
         event.preventDefault()
         setError('')
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+
         signIn(email, password)
             .then(result => {
                 console.log(result.user)
+                navigate(from)
                 setError('')
+                console.log(from)
                 form.reset()
             })
             .catch(e => {
@@ -32,14 +39,18 @@ const Login = () => {
     }
     const handelGithubLogin = () => {
         githubLogin()
-            .then(result => { console.log(result.user) })
+            .then(result => { 
+                navigate(from)
+                console.log(result.user) })
             .catch(error => console.log(error))
 
     }
 
     const handelGoogleLogin = () => {
         googleLogin()
-            .then(result => console.log(result.user))
+            .then(result =>{
+                navigate(from)
+                console.log(result.user)})
             .catch(error => console.log(error))
     }
     return (
