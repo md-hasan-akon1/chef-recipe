@@ -2,19 +2,16 @@ import React, { useContext } from 'react';
 import { Button, Container, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link, NavLink } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
+const ref = React.createRef();
 const Header = () => {
   const { user, logout } = useContext(authContext);
   const name = user?.displayName;
-  console.log(user)
   const handelLogout = () => {
     logout()
 
   }
-
-
   return (
     <Container className='mt-4'>
       <h2 className='text-center ' style={{ fontFamily: 'fantasy' }}> <span className='text-center bg-light' >The Delicious Food Recipes</span></h2>

@@ -12,4 +12,4 @@
 * header file set up nav bar 
 * footer file set up footer
 * privet rout implement that if user login page then go to recipes detail otherwise navigate log in page
- live link [click here](https://assignment-ten-63c9f.web.app)
+* live link [click here](https://assignment-ten-63c9f.web.app)

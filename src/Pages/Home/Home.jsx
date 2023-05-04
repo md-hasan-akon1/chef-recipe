@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../ChefCard/ChefCard';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
-import { FaEye, FaRegBookmark, FaRegStar, FaShareAlt, FaStar } from 'react-icons/fa';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import LazyLoad from 'react-lazy-load';
@@ -58,9 +58,9 @@ const Home = () => {
 
             {/* chef card */}
             <section>
-            <h2 className='text-center mt-5 fw-bold'>Our Chef</h2>
+                <h2 className='text-center mt-5 fw-bold'>Our Chef</h2>
                 <LazyLoad threshold={0.95}>
-                    
+
                     <Row xs={1} md={2} lg={3} className="g-4 mt-3">
                         {
                             cardData.map(card => <ChefCard
@@ -190,6 +190,8 @@ const Home = () => {
                     </Card>
                 </div>
             </section>
+           
+
         </Container>
     );
 };
