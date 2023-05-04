@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const ChefCard = ({ card }) => {
   const { chefName, chefPicture, likes, rating, recipeName, yearsOfExperience, id, numberOfRecipes } = card
   return (
-    <div data-aos="zoom-in-up" > <Col>
+    <div data-aos="zoom-in-up" data-aos-duration="3000" > <Col>
       <Card className='shadow'>
         <LazyLoad height={300}>
           <Card.Img variant="top" style={{ height: '300px' }} src={chefPicture} />

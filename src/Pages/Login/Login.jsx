@@ -54,7 +54,7 @@ const Login = () => {
             .catch(error => console.log(error))
     }
     return (
-        <div style={{ height: '500px', width: '400px' }} className={`mx-auto m-4 `}>
+        <div style={{ height: '500px', width: '400px',backgroundColor:'rgb(230, 255, 255)' }} className={`mx-auto mt-4 rounded `}>
 
             <h1 className='text-center'>Login Please !</h1>
             <Form onSubmit={handelLogin} style={{ backgroundColor: 'rgb(221, 240, 226)' }} className='border p-4 rounded '>
@@ -75,9 +75,9 @@ const Login = () => {
                 </Button>
                 <p className='fw-bold text-center'>Don't Have An Account <Link to='/register'> Register</Link></p>
                 <div className='d-flex justify-content-center align-items-center gap-2'>
-                    <span style={{ height: '4px', width: '100px' }} className='bg-dark '></span>
+                    <span style={{ height: '4px', width: '150px' }} className='bg-dark '></span>
                     <h6 className='text-center'>OR</h6>
-                    <span style={{ height: '4px', width: '100px' }} className='bg-dark '></span>
+                    <span style={{ height: '4px', width: '150px' }} className='bg-dark '></span>
 
                 </div>
 

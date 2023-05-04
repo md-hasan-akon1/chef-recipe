@@ -3,12 +3,13 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Register = () => {
-    const { createUser } = useContext(authContext);
+    const { createUser, googleLogin, githubLogin } = useContext(authContext);
     const [error, setError] = useState('');
     const [passwordCheck, setPassword] = useState('');
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const handelRegister = event => {
         event.preventDefault()
         const form = event.target;
@@ -40,18 +41,19 @@ const Register = () => {
                     console.log(e.message)
                     if (errorMassage.includes("auth")) {
                         setError('User already exists')
-     }
+                    }
                     return
                 })
             setError('')
-        }}
-        const upDateUser=(user,name,photo,)=>{
-            updateProfile(user,{
-            displayName:name,
-            photoURL:photo
+        }
+    }
+    const upDateUser = (user, name, photo,) => {
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
         })
-        .then(()=>{})
-        .catch(error=>console.log(error))
+            .then(() => { })
+            .catch(error => console.log(error))
     }
 
 
@@ -66,7 +68,24 @@ const Register = () => {
             setError('')
         }
     }
+    const handelGithubLogin = () => {
+        githubLogin()
+            .then(result => {
+                navigate(from)
+                console.log(result.user)
+            })
+            .catch(error => console.log(error))
 
+    }
+
+    const handelGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                navigate(from)
+                console.log(result.user)
+            })
+            .catch(error => console.log(error))
+    }
     return (
         <div>
             <Container style={{ width: '400px' }} className={` mx-auto m-4 `}>
@@ -113,6 +132,14 @@ const Register = () => {
                         Register
                     </Button>
                     <p>Have an account? <Link to='/login'>login</Link></p>
+                    <div className='d-flex justify-content-center align-items-center gap-2'>
+                        <span style={{ height: '4px', width: '150px' }} className='bg-dark '></span>
+                        <h6 className='text-center'>OR</h6>
+                        <span style={{ height: '4px', width: '150px' }} className='bg-dark '></span>
+
+                    </div>
+                    <Button onClick={handelGoogleLogin} className='fw-bold text-dark w-100 mb-2' variant="outline-secondary"> <FaGoogle /> Continue With Google</Button>
+                    <Button onClick={handelGithubLogin} className='fw-bold text-dark w-100' variant="outline-secondary"> <FaGithub /> Continue With GitHub</Button>
                 </Form>
             </Container >
         </div>

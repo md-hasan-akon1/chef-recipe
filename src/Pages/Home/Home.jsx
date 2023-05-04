@@ -14,7 +14,7 @@ const Home = () => {
         AOS.init();
     }, [])
     return (
-        <Container style={{ backgroundColor: 'rgb(221, 240, 226)' }} >
+        <Container style={{ backgroundColor: 'rgb(225, 234, 234)' }} >
             {/* carousel section */}
             <Carousel className='mt-4'>
                 <Carousel.Item>
@@ -58,15 +58,18 @@ const Home = () => {
 
             {/* chef card */}
             <section>
-                <h2 className='text-center mt-5 fw-bold'>Our Chef</h2>
-                <Row xs={1} md={2} lg={3} className="g-4 mt-3">
-                    {
-                        cardData.map(card => <ChefCard
-                            key={card.id}
-                            card={card}
-                        ></ChefCard>)
-                    }
-                </Row>
+            <h2 className='text-center mt-5 fw-bold'>Our Chef</h2>
+                <LazyLoad threshold={0.95}>
+                    
+                    <Row xs={1} md={2} lg={3} className="g-4 mt-3">
+                        {
+                            cardData.map(card => <ChefCard
+                                key={card.id}
+                                card={card}
+                            ></ChefCard>)
+                        }
+                    </Row>
+                </LazyLoad>
             </section>
 
             {/* extra section 1 */}
@@ -74,7 +77,7 @@ const Home = () => {
             <section className='bg-warning-subtle'>
                 <h1 className='text-center mt-4'>Most Favorite Foods</h1>
                 <CardGroup className=''>
-                    <Card data-aos="fade-down-right" className='mx-4 '>
+                    <Card data-aos="fade-down-right" data-aos-duration="3000" className='mx-4 '>
                         <Card.Img variant="top" style={{ height: '300px' }} src="https://i.ibb.co/vXt517Y/Chicken-Picatta-8.jpg" />
                         <Card.Body>
                             <p className='fw-bolder text-danger'>MAIN DISHES</p>
@@ -93,7 +96,7 @@ const Home = () => {
                             <small className="text-muted">Available now this special food</small>
                         </Card.Footer>
                     </Card>
-                    <Card data-aos="flip-down" className='border shadow'>
+                    <Card data-aos="flip-down" data-aos-duration="3000" className='border shadow'>
                         <Card.Img variant="top" style={{ height: '300px' }} src="https://i.ibb.co/wgyzZJM/Kung-Pao-Chicken-Horizontal.jpg" />
                         <Card.Body>
                             <p className='fw-bolder text-danger'>MAIN DISHES</p>
@@ -111,7 +114,7 @@ const Home = () => {
                             <small className="text-muted">Available now this special food</small>
                         </Card.Footer>
                     </Card>
-                    <Card data-aos="fade-down-left" className='mx-4 border '>
+                    <Card data-aos="fade-down-left" data-aos-duration="3000" className='mx-4 border '>
                         <Card.Img variant="top" style={{ height: '300px' }} src="https://i.ibb.co/cJSm9yD/Slow-Cooker-Honey-Garlic-Chicken-Thighs-and-Potatoes-Recipe-10x7-684x480.jpg" />
                         <Card.Body>
                             <p className='fw-bolder text-danger'>MAIN DISHES</p>
@@ -136,7 +139,7 @@ const Home = () => {
                 <h1 className='text-center my-4'>Fitness Tips</h1>
                 <div className=' row '>
                     <Card className='col-lg-4 '>
-                        <LazyLoad   threshold={0.95} offset={300} height={280}>
+                        <LazyLoad threshold={0.95} offset={300} height={280}>
                             <Card.Img variant="top" src="https://i.ibb.co/DD2PVG2/top-view-of-cropped-hands-holding-bowl-with-vegeta-2022-11-17-12-45-27-utc-1024x683.jpg" />
                         </LazyLoad>
                         <Card.Body>
@@ -153,7 +156,7 @@ const Home = () => {
                     </Card>
 
                     <Card className='col-lg-4  ' >
-                        <LazyLoad height={280}>
+                        <LazyLoad height={280} threshold={0.95}>
                             <Card.Img variant="top" src="https://i.ibb.co/k1bz1RS/young-woman-nutritionist-in-white-shirt-working-at-2021-09-04-15-03-27-utc-1024x682.jpg" />
                         </LazyLoad>
                         <Card.Body>
@@ -170,7 +173,7 @@ const Home = () => {
                     </Card>
 
                     <Card className='col-lg-4 '>
-                        <LazyLoad height={280}>
+                        <LazyLoad height={280} threshold={0.95}>
                             <Card.Img variant="top" src="https://i.ibb.co/0Z1fNgS/nutritionist-with-female-patient-2021-08-26-16-53-46-utc-1024x684.jpg" />
                         </LazyLoad>
                         <Card.Body>
