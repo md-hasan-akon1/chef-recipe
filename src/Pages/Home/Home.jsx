@@ -5,16 +5,28 @@ import ChefCard from '../ChefCard/ChefCard';
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import LazyLoad from 'react-lazy-load';
+import ReactToPdf from '../../ReactToPdf';
 const Home = () => {
     const cardData = useLoaderData()
     useEffect(() => {
         AOS.init();
     }, [])
+    const ref = React.createRef();
     return (
         <Container style={{ backgroundColor: 'rgb(225, 234, 234)' }} >
+            
+            {/* <div>
+                <ReactToPdf targetRef={ref} filename="div-blue.pdf">
+                    {({ toPdf }) => (
+                        <Button onClick={toPdf}>Generate pdf</Button>
+                    )}
+                </ReactToPdf>
+                <div style={{ width: 500, height: 500 }} ref={ref.current} />
+            </div> */}
             {/* carousel section */}
             <Carousel className='mt-4'>
                 <Carousel.Item>
@@ -190,7 +202,7 @@ const Home = () => {
                     </Card>
                 </div>
             </section>
-           
+
 
         </Container>
     );

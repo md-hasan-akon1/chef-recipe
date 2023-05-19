@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, Container, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import Navbar from 'react-bootstrap/Navbar'; 
 import { Link, NavLink } from 'react-router-dom';
 import { authContext } from '../../AuthProvider/AuthProvider';
 const ref = React.createRef();
@@ -14,10 +14,10 @@ const Header = () => {
   }
   return (
     <Container className='mt-4'>
-      <h2 className='text-center ' style={{ fontFamily: 'fantasy' }}> <span className='text-center bg-light' >The Delicious Food Recipes</span></h2>
+      <h2 className='text-center ' style={{ fontFamily: 'fantasy' }}> <span className='text-center bg-light' >The Bengali Delicious Food Recipes</span></h2>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home" className='text-bold d-flex justify-content-center align-item-center'><Image style={{ height: '50px' }} src='https://i.ibb.co/QJwmyyw/png-clipart-case-mate-logo-creamycookies-design-apple-iphone-4-cooking-ware-text-recipe-thumbnail.png'></Image> <h4 style={{ fontStyle: 'italic' }}>The Delicious Food Recipes</h4></Navbar.Brand>
+          <Navbar.Brand href="#home" className='text-bold d-flex justify-content-center align-item-center'><Image style={{ height: '50px' }} src='https://i.ibb.co/QJwmyyw/png-clipart-case-mate-logo-creamycookies-design-apple-iphone-4-cooking-ware-text-recipe-thumbnail.png'></Image> <h4 style={{ fontStyle: 'italic' }}>The Bengali Delicious Food Recipes</h4></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
